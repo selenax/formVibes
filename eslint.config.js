@@ -28,6 +28,7 @@ export default [
       ...reactHooks.configs.recommended.rules,
       'spaced-comment': ['error', 'always'],
       'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
     },
     settings: {
       react: {
