@@ -24,7 +24,7 @@ function App() {
       <div className="flex justify-center p-10">
         <div className="w-full max-w-5xl flex gap-4">
           <div className="w-1/3">
-            <Sidebar onClick={handleClickField} />
+            <Sidebar onAddField={handleClickField} />
           </div>
           <div className="w-2/3">
             <FormEditor />
