@@ -10,7 +10,7 @@ function Sidebar({ onAddField }) {
             onClick={() => onAddField(type)}
             className="btn-primary"
           >
-            {type[0].toUpperCase() + type.slice(1)}
+            {type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
         ))}
       </div>
