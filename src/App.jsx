@@ -22,11 +22,11 @@ function App() {
   return (
     <div>
       <div className="flex justify-center p-10">
-        <div className="w-full max-w-5xl flex gap-4">
-          <div className="w-1/3">
+        <div className="w-full max-w-5xl px-4 md:px-10 flex flex-wrap md:flex-nowrap gap-4">
+          <div className="w-full md:w-1/3 lg:w-1/4">
             <Sidebar onAddField={handleClickField} />
           </div>
-          <div className="w-2/3">
+          <div className="w-full md:w-2/3 lg:w-3/4">
             <FormEditor />
           </div>
         </div>
