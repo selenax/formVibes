@@ -6,9 +6,9 @@ function Sidebar({ onAddField }) {
       <div className="grid grid-cols-2 gap-4">
         {fieldTypes.map((type) => (
           <button
+            className="btn-primary"
             key={type}
             onClick={() => onAddField(type)}
-            className="btn-primary"
           >
             {type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
