@@ -19,6 +19,15 @@ function App() {
     console.log('Added:', newField);
   };
 
+  // updates required flag for the matching field 
+  const toggleRequired = (id) => {
+    setCollection((prev) =>
+      prev.map((field) =>
+        field.id === id ? { ...field, required: !field.required } : field
+      )
+    );
+  };
+
   return (
     <div>
       <div className="flex justify-center p-10">
@@ -27,7 +36,10 @@ function App() {
             <Sidebar onAddField={handleClickField} />
           </div>
           <div className="w-full md:w-2/3 lg:w-3/4">
-            <FormEditor />
+            <FormEditor
+              collection={collection}
+              onToggleRequired={toggleRequired}
+            />
           </div>
         </div>
       </div>
