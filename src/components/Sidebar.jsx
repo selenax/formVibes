@@ -3,10 +3,10 @@ function Sidebar({ onAddField }) {
   return (
     <div>
       <p className="text-gray-600">Select Fields</p>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {fieldTypes.map((type) => (
           <button
-            className="btn-primary"
+            className="btn-primary w-full text-center"
             key={type}
             onClick={() => onAddField(type)}
           >
