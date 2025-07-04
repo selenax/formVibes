@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import FormEditor from './components/FormEditor';
 
-function App() {
+const App = () => {
   const [collection, setCollection] = useState([]);
 
   // handler: create and add a new form field to collection
@@ -19,7 +19,7 @@ function App() {
     console.log('Added:', newField);
   };
 
-  // updates required flag for the matching field 
+  // updates required flag for the matching field
   const toggleRequired = (id) => {
     setCollection((prev) =>
       prev.map((field) =>
@@ -45,6 +45,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
