@@ -1,4 +1,4 @@
-function Sidebar({ onAddField }) {
+const Sidebar = ({ onAddField }) => {
   const fieldTypes = ['text', 'paragraph', 'checkbox', 'select'];
   return (
     <div>
@@ -16,6 +16,6 @@ function Sidebar({ onAddField }) {
       </div>
     </div>
   );
-}
+};
 
 export default Sidebar;
