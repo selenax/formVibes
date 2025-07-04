@@ -5,7 +5,7 @@ import SelectField from './FieldList/SelectField';
 
 const FormEditor = ({ collection }) => {
   return (
-    <div>
+    <div className="space-y-4">
       {collection.map((field) => {
         switch (field.type) {
           case 'text':
