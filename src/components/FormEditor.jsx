@@ -20,7 +20,6 @@ const FormEditor = ({ collection }) => {
             return null;
         }
       })}
-      ;
     </div>
   );
 };
