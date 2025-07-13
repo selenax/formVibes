@@ -3,13 +3,15 @@ import CheckboxField from './FieldList/CheckboxField';
 import ParagraphField from './FieldList/ParagraphField';
 import SelectField from './FieldList/SelectField';
 
-const FormEditor = ({ collection }) => {
+const FormEditor = ({ collection, onUpdate }) => {
   return (
     <div className="space-y-4">
       {collection.map((field) => {
         switch (field.type) {
           case 'text':
-            return <TextField key={field.id} field={field} />;
+            return (
+              <TextField key={field.id} field={field} onUpdate={onUpdate} />
+            );
           case 'checkbox':
             return <CheckboxField key={field.id} field={field} />;
           case 'paragraph':
