@@ -9,14 +9,13 @@ const App = () => {
   const handleClickField = (type) => {
     // form schema
     const newField = {
-      id: crypto.randomUUID(), // unique identifier for field
-      type, // field type: 'text','checkbox','paragraph','select'
+      id: crypto.randomUUID(), // unique id
+      type, // 'text','checkbox','paragraph','select'
       label: 'Untitled', // default label
-      required: false, // default required status
+      required: false,
     };
     // adds to collection
     setCollection((prev) => [...prev, newField]);
-    console.log('Added:', newField);
   };
 
   // updates required flag for the matching field
@@ -25,6 +24,12 @@ const App = () => {
       prev.map((field) =>
         field.id === id ? { ...field, required: !field.required } : field
       )
+    );
+  };
+
+  const updateField = (id, updates) => {
+    setCollection((prev) =>
+      prev.map((field) => (field.id === id ? { ...field, ...updates } : field))
     );
   };
 
@@ -39,6 +44,7 @@ const App = () => {
             <FormEditor
               collection={collection}
               onToggleRequired={toggleRequired}
+              onUpdate={updateField}
             />
           </div>
         </div>
