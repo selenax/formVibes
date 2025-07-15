@@ -12,7 +12,14 @@ const TextField = ({ field, onUpdate }) => {
           <span className="text-red-500 ml-2 font-bold">*</span>
         )}
       </div>
-
+      <div className="flex items-center space-x-2">
+        <input
+          type="checkbox"
+          checked={field.required}
+          onChange={(e) => onUpdate(field.id, { required: e.target.checked })}
+        />
+        <label className="text-sm text-gray-600">Required</label>
+      </div>
       <input
         type="text"
         placeholder="Enter input"
