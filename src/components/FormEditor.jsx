@@ -13,7 +13,9 @@ const FormEditor = ({ collection, onUpdate }) => {
               <TextField key={field.id} field={field} onUpdate={onUpdate} />
             );
           case 'checkbox':
-            return <CheckboxField key={field.id} field={field} />;
+            return (
+              <CheckboxField key={field.id} field={field} onUpdate={onUpdate} />
+            );
           case 'paragraph':
             return <ParagraphField key={field.id} field={field} />;
           case 'select':
