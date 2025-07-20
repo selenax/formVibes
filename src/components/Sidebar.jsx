@@ -1,5 +1,5 @@
 const Sidebar = ({ onAddField }) => {
-  const fieldTypes = ['text', 'paragraph', 'checkbox', 'select', 'radio'];
+  const fieldTypes = ['text', 'paragraph', 'checkbox', 'radio', 'select'];
 
   return (
     <div className="pb-6">

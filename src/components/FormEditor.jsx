@@ -94,11 +94,11 @@ const FormEditor = ({ collection, onUpdate, onDelete, onReorder }) => {
               case 'paragraph':
                 FieldComponent = ParagraphField;
                 break;
-              case 'select':
-                FieldComponent = SelectField;
-                break;
               case 'radio':
                 FieldComponent = RadioField;
+                break;
+              case 'select':
+                FieldComponent = SelectField;
                 break;
               default:
                 return null;
