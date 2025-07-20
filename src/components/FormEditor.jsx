@@ -18,6 +18,7 @@ import CheckboxField from './FieldList/CheckboxField';
 import ParagraphField from './FieldList/ParagraphField';
 import SelectField from './FieldList/SelectField';
 import RadioField from './FieldList/RadioField';
+import FieldCard from './FieldCard';
 
 const SortableFieldWrapper = ({ field, onDelete, children }) => {
   const { setNodeRef, attributes, listeners, transform, transition } =
@@ -32,13 +33,13 @@ const SortableFieldWrapper = ({ field, onDelete, children }) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="relative border rounded p-2 bg-white shadow"
+      className="relative border rounded bg-white shadow pt-6 px-4 pb-4"
     >
       {/* Drag handle */}
       <div
         {...attributes}
         {...listeners}
-        className="absolute left-1 top-1 cursor-grab text-gray-400"
+        className="absolute top-1 left-2 text-gray-400 cursor-grab"
         title="Drag to reorder"
       >
         ☰
@@ -83,7 +84,6 @@ const FormEditor = ({ collection, onUpdate, onDelete, onReorder }) => {
         <div className="space-y-4">
           {collection.map((field) => {
             let FieldComponent;
-
             switch (field.type) {
               case 'text':
                 FieldComponent = TextField;
@@ -105,13 +105,9 @@ const FormEditor = ({ collection, onUpdate, onDelete, onReorder }) => {
             }
 
             return (
-              <SortableFieldWrapper
-                key={field.id}
-                field={field}
-                onDelete={onDelete}
-              >
+              <FieldCard key={field.id} field={field} onDelete={onDelete}>
                 <FieldComponent field={field} onUpdate={onUpdate} />
-              </SortableFieldWrapper>
+              </FieldCard>
             );
           })}
         </div>
