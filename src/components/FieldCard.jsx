@@ -24,7 +24,7 @@ const FieldCard = ({ field, onDelete, children }) => {
       <div
         ref={setNodeRef}
         style={style}
-        className="relative border rounded bg-white shadow pt-6 px-4 pb-4 pl-6"
+        className="relative border border-gray-300 rounded-lg bg-white shadow-sm pt-6 px-4 pb-4 pl-6"
       >
         {/* Drag handle */}
         <div
