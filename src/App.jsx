@@ -7,13 +7,24 @@ const App = () => {
 
   // handler: create and add a new form field to collection
   const handleClickField = (type) => {
-    // form schema
-    const newField = {
-      id: crypto.randomUUID(), // unique id
-      type, // 'text','checkbox','paragraph','select'
-      label: 'Untitled', // default label
+    let newField = {
+      id: crypto.randomUUID(),
+      type,
+      label: 'Untitled',
       required: false,
     };
+
+    if (type === 'checkbox') {
+      newField.options = ['Option 1', 'Option 2'];
+    }
+
+    if (type === 'select') {
+      newField.options = ['Option A', 'Option B'];
+    }
+    if (type === 'radio') {
+      newField.options = ['Option 1', 'Option 2'];
+    }
+
     // adds to collection
     setCollection((prev) => [...prev, newField]);
   };
