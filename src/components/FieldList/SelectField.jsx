@@ -3,6 +3,7 @@ import OptionEditor from './OptionEditor';
 const SelectField = ({ field, onUpdate }) => {
   return (
     <div className="p-4 border rounded space-y-2">
+      
       {/* Field label */}
       <input
         type="text"

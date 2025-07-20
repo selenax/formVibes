@@ -46,25 +46,24 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-[1000px] mx-auto p-6 bg-white shadow-sm rounded-lg">
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Sidebar Column */}
-          <div className="w-full md:w-[220px] flex-shrink-0 sticky top-10 self-start max-h-[90vh] overflow-auto">
-            <Sidebar onAddField={handleClickField} />
-          </div>
+    <div className="min-h-screen bg-white flex px-6 py-10">
+      {/* Fixed Sidebar */}
+      <div className="hidden md:block fixed top-10 left-6 w-64 h-[90vh] overflow-auto bg-white shadow z-30 p-4 rounded-md">
+        <Sidebar onAddField={handleClickField} />
+      </div>
 
-          {/* Form Editor Column */}
-          <div className="flex-1">
-            <FormEditor
-              collection={collection}
-              onToggleRequired={toggleRequired}
-              onUpdate={updateField}
-              onDelete={handleDeleteField}
-              onReorder={handleReorderFields}
-            />
-          </div>
-        </div>
+      {/* Spacer for Sidebar */}
+      <div className="w-0 md:w-64" />
+
+      {/* Main Content */}
+      <div className="flex-1 max-w-[1000px] mx-auto">
+        <FormEditor
+          collection={collection}
+          onToggleRequired={toggleRequired}
+          onUpdate={updateField}
+          onDelete={handleDeleteField}
+          onReorder={handleReorderFields}
+        />
       </div>
     </div>
   );
