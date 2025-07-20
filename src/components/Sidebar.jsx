@@ -1,14 +1,15 @@
 const Sidebar = ({ onAddField }) => {
   const fieldTypes = ['text', 'paragraph', 'checkbox', 'select', 'radio'];
+
   return (
-    <div>
-      <p className="text-gray-600">Select Fields</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="pb-6">
+      <p className="text-gray-600 mb-4">Select Fields</p>
+      <div className="flex flex-col gap-3 items-start">
         {fieldTypes.map((type) => (
           <button
-            className="btn-primary w-full text-center"
             key={type}
             onClick={() => onAddField(type)}
+            className="btn-primary w-[140px] text-center text-base px-3 py-2"
           >
             {type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
