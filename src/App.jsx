@@ -5,7 +5,6 @@ import FormEditor from './components/FormEditor';
 const App = () => {
   const [collection, setCollection] = useState([]);
 
-  // handler: create and add a new form field to collection
   const handleClickField = (type) => {
     let newField = {
       id: crypto.randomUUID(),
@@ -14,22 +13,16 @@ const App = () => {
       required: false,
     };
 
-    if (type === 'checkbox') {
+    if (['checkbox', 'radio'].includes(type)) {
       newField.options = ['Option 1', 'Option 2'];
     }
-
     if (type === 'select') {
       newField.options = ['Option A', 'Option B'];
     }
-    if (type === 'radio') {
-      newField.options = ['Option 1', 'Option 2'];
-    }
 
-    // adds to collection
     setCollection((prev) => [...prev, newField]);
   };
 
-  // updates required flag for the matching field
   const toggleRequired = (id) => {
     setCollection((prev) =>
       prev.map((field) =>
@@ -53,19 +46,24 @@ const App = () => {
   };
 
   return (
-    <div className="flex justify-center items-start gap-12 px-6 py-10 mx-auto">
-      <div className="w-full max-w-5xl flex flex-wrap md:flex-nowrap gap-4">
-        <div className="w-full md:w-1/3 lg:w-1/4">
-          <Sidebar onAddField={handleClickField} />
-        </div>
-        <div className="w-full md:w-2/3 lg:w-3/4">
-          <FormEditor
-            collection={collection}
-            onToggleRequired={toggleRequired}
-            onUpdate={updateField}
-            onDelete={handleDeleteField}
-            onReorder={handleReorderFields}
-          />
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-[1000px] mx-auto p-6 bg-white shadow-sm rounded-lg">
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Sidebar Column */}
+          <div className="w-full md:w-[220px] flex-shrink-0 sticky top-10 self-start max-h-[90vh] overflow-auto">
+            <Sidebar onAddField={handleClickField} />
+          </div>
+
+          {/* Form Editor Column */}
+          <div className="flex-1">
+            <FormEditor
+              collection={collection}
+              onToggleRequired={toggleRequired}
+              onUpdate={updateField}
+              onDelete={handleDeleteField}
+              onReorder={handleReorderFields}
+            />
+          </div>
         </div>
       </div>
     </div>
