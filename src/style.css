@@ -1,10 +1,5 @@
 @import 'tailwindcss';
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 .btn-primary {
   @apply text-black px-4 py-2 border-2 border-gray-300 rounded hover:bg-gray-400;
 }
