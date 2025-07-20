@@ -81,7 +81,7 @@ const FormEditor = ({ collection, onUpdate, onDelete, onReorder }) => {
         items={collection.map((f) => f.id)}
         strategy={verticalListSortingStrategy}
       >
-        <div className="space-y-4">
+        <div className="space-y-4 pl-12">
           {collection.map((field) => {
             let FieldComponent;
             switch (field.type) {
