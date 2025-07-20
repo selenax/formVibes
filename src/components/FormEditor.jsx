@@ -2,6 +2,7 @@ import TextField from './FieldList/TextField';
 import CheckboxField from './FieldList/CheckboxField';
 import ParagraphField from './FieldList/ParagraphField';
 import SelectField from './FieldList/SelectField';
+import RadioField from './FieldList/RadioField';
 
 const FormEditor = ({ collection, onUpdate }) => {
   return (
@@ -28,6 +29,10 @@ const FormEditor = ({ collection, onUpdate }) => {
             return <SelectField key={field.id} field={field} />;
           default:
             return null;
+          case 'radio':
+            return (
+              <RadioField key={field.id} field={field} onUpdate={onUpdate} />
+            );
         }
       })}
     </div>

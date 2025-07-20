@@ -1,7 +1,27 @@
 const CheckboxField = ({ field, onUpdate }) => {
+  // Handle option label update
+  const updateOption = (index, value) => {
+    const newOptions = [...(field.options || [])];
+    newOptions[index] = value;
+    onUpdate(field.id, { options: newOptions });
+  };
+
+  // Add a new blank option
+  const addOption = () => {
+    const newOptions = [...(field.options || []), ''];
+    onUpdate(field.id, { options: newOptions });
+  };
+
+  // Remove option at index
+  const removeOption = (index) => {
+    const newOptions = [...(field.options || [])];
+    newOptions.splice(index, 1);
+    onUpdate(field.id, { options: newOptions });
+  };
+
   return (
     <div className="p-4 border rounded space-y-2">
-      {/* Label input */}
+      {/* Field label */}
       <input
         type="text"
         value={field.label}
@@ -10,7 +30,7 @@ const CheckboxField = ({ field, onUpdate }) => {
         placeholder="Field label"
       />
 
-      {/* Required checkbox */}
+      {/* Required toggle */}
       <div className="flex items-center space-x-2">
         <input
           type="checkbox"
@@ -20,22 +40,42 @@ const CheckboxField = ({ field, onUpdate }) => {
         <label className="text-sm text-gray-600">Required</label>
       </div>
 
-      {/* Custom option label */}
-      <input
-        type="text"
-        value={field.optionLabel || ''}
-        onChange={(e) => onUpdate(field.id, { optionLabel: e.target.value })}
-        className="text-sm text-gray-600 border px-2 py-1 rounded w-full"
-        placeholder="Checkbox option label"
-      />
+      {/* Dynamic option editor */}
+      {(field.options || []).map((option, index) => (
+        <div key={index} className="flex items-center space-x-2">
+          <input
+            type="text"
+            value={option}
+            onChange={(e) => updateOption(index, e.target.value)}
+            className="text-sm text-gray-600 border px-2 py-1 rounded w-full"
+            placeholder={`Option ${index + 1}`}
+          />
+          <button
+            onClick={() => removeOption(index)}
+            className="text-red-500 text-sm"
+          >
+            ✕
+          </button>
+        </div>
+      ))}
 
-      {/* Preview checkbox */}
-      <div className="flex items-center space-x-2">
-        <input type="checkbox" disabled />
-        <label className="text-sm text-gray-500">
-          {field.optionLabel || 'Sample checkbox'}
-        </label>
-      </div>
+      {/* Add option button */}
+      <button
+        onClick={addOption}
+        className="text-sm text-blue-500 hover:underline"
+      >
+        + Add Option
+      </button>
+
+      {/* Preview */}
+      {(field.options || []).map((option, index) => (
+        <div key={`preview-${index}`} className="flex items-center space-x-2">
+          <input type="checkbox" disabled />
+          <label className="text-sm text-gray-500">
+            {option || `Option ${index + 1}`}
+          </label>
+        </div>
+      ))}
     </div>
   );
 };
