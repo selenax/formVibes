@@ -1,22 +1,9 @@
+import OptionEditor from './OptionEditor';
+
 const RadioField = ({ field, onUpdate }) => {
-  const updateOption = (index, value) => {
-    const newOptions = [...field.options];
-    newOptions[index] = value;
-    onUpdate(field.id, { options: newOptions });
-  };
-
-  const addOption = () => {
-    onUpdate(field.id, { options: [...field.options, ''] });
-  };
-
-  const removeOption = (index) => {
-    const newOptions = [...field.options];
-    newOptions.splice(index, 1);
-    onUpdate(field.id, { options: newOptions });
-  };
-
   return (
     <div className="p-4 border rounded space-y-2">
+      {/* Field label */}
       <input
         type="text"
         value={field.label}
@@ -25,6 +12,7 @@ const RadioField = ({ field, onUpdate }) => {
         placeholder="Field label"
       />
 
+      {/* Required toggle */}
       <div className="flex items-center space-x-2">
         <input
           type="checkbox"
@@ -34,33 +22,14 @@ const RadioField = ({ field, onUpdate }) => {
         <label className="text-sm text-gray-600">Required</label>
       </div>
 
-      {field.options.map((option, index) => (
-        <div key={index} className="flex items-center space-x-2">
-          <input
-            type="text"
-            value={option}
-            onChange={(e) => updateOption(index, e.target.value)}
-            className="text-sm text-gray-600 border px-2 py-1 rounded w-full"
-            placeholder={`Option ${index + 1}`}
-          />
-          <button
-            onClick={() => removeOption(index)}
-            className="text-red-500 text-sm"
-          >
-            ✕
-          </button>
-        </div>
-      ))}
-
-      <button
-        onClick={addOption}
-        className="text-sm text-blue-500 hover:underline"
-      >
-        + Add Option
-      </button>
+      {/* Option editor */}
+      <OptionEditor
+        options={field.options}
+        onChange={(opts) => onUpdate(field.id, { options: opts })}
+      />
 
       {/* Preview */}
-      {field.options.map((option, index) => (
+      {(field.options || []).map((option, index) => (
         <div key={`preview-${index}`} className="flex items-center space-x-2">
           <input type="radio" name={field.id} disabled />
           <label className="text-sm text-gray-500">
