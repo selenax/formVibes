@@ -44,6 +44,14 @@ const App = () => {
     );
   };
 
+  const handleDeleteField = (id) => {
+    setCollection((prev) => prev.filter((field) => field.id !== id));
+  };
+
+  const handleReorderFields = (newOrder) => {
+    setCollection(newOrder);
+  };
+
   return (
     <div>
       <div className="flex justify-center p-10">
@@ -56,6 +64,8 @@ const App = () => {
               collection={collection}
               onToggleRequired={toggleRequired}
               onUpdate={updateField}
+              onDelete={handleDeleteField}
+              onReorder={handleReorderFields}
             />
           </div>
         </div>
