@@ -11,31 +11,34 @@ const FieldCard = ({ field, onDelete, children }) => {
   };
 
   return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      className="relative border rounded bg-white shadow pt-6 px-4 pb-4"
-    >
-      {/* Drag handle */}
-      <div
-        {...attributes}
-        {...listeners}
-        className="absolute top-1 left-2 text-gray-400 cursor-grab"
-        title="Drag to reorder"
-      >
-        ☰
-      </div>
-
-      {/* Delete button */}
+    <div className="relative pt-6 px-6">
+      {/* Delete button (outside top-right) */}
       <button
         onClick={() => onDelete(field.id)}
-        className="absolute top-1 right-2 text-red-500 text-sm"
+        className="absolute -top-1 -right-1 text-red-500 text-lg font-bold transition-transform duration-200 ease-out hover:scale-150 hover:text-xl active:scale-125 z-10 px-2 py-1"
+        title="Delete field"
       >
         ✕
       </button>
 
-      {/* Field content */}
-      {children}
+      <div
+        ref={setNodeRef}
+        style={style}
+        className="relative border rounded bg-white shadow pt-6 px-4 pb-4 pl-6"
+      >
+        {/* Drag handle */}
+        <div
+          {...attributes}
+          {...listeners}
+          className="absolute -left-10 top-1/2 -translate-y-1/2 text-gray-300 text-3xl cursor-grab transition-transform duration-200 ease-out hover:scale-150 active:scale-125"
+          title="Drag to reorder"
+        >
+          ☰
+        </div>
+
+        {/* Field content */}
+        {children}
+      </div>
     </div>
   );
 };
