@@ -53,21 +53,19 @@ const App = () => {
   };
 
   return (
-    <div>
-      <div className="flex justify-center p-10">
-        <div className="w-full max-w-5xl px-4 md:px-10 flex flex-wrap md:flex-nowrap gap-4">
-          <div className="w-full md:w-1/3 lg:w-1/4">
-            <Sidebar onAddField={handleClickField} />
-          </div>
-          <div className="w-full md:w-2/3 lg:w-3/4">
-            <FormEditor
-              collection={collection}
-              onToggleRequired={toggleRequired}
-              onUpdate={updateField}
-              onDelete={handleDeleteField}
-              onReorder={handleReorderFields}
-            />
-          </div>
+    <div className="flex justify-center items-start gap-12 px-6 py-10 mx-auto">
+      <div className="w-full max-w-5xl flex flex-wrap md:flex-nowrap gap-4">
+        <div className="w-full md:w-1/3 lg:w-1/4">
+          <Sidebar onAddField={handleClickField} />
+        </div>
+        <div className="w-full md:w-2/3 lg:w-3/4">
+          <FormEditor
+            collection={collection}
+            onToggleRequired={toggleRequired}
+            onUpdate={updateField}
+            onDelete={handleDeleteField}
+            onReorder={handleReorderFields}
+          />
         </div>
       </div>
     </div>
