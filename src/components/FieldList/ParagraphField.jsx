@@ -25,7 +25,7 @@ const ParagraphField = ({ field, onUpdate }) => {
       />
       <textarea
         placeholder={field.placeholder || 'Enter multi-line text...'}
-        className="w-full border rounded px-2 py-1"
+        className="w-full border rounded px-2 py-1 resize-y"
         rows={4}
         readOnly
       />
