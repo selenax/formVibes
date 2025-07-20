@@ -16,12 +16,18 @@ const ParagraphField = ({ field, onUpdate }) => {
         />
         <label className="text-sm text-gray-600">Required</label>
       </div>
-
+      <input
+        type="text"
+        value={field.placeholder || ''}
+        onChange={(e) => onUpdate(field.id, { placeholder: e.target.value })}
+        className="text-sm text-gray-600 border px-2 py-1 rounded w-full"
+        placeholder="Placeholder text (optional)"
+      />
       <textarea
-        placeholder="Enter multi-line text..."
+        placeholder={field.placeholder || 'Enter multi-line text...'}
         className="w-full border rounded px-2 py-1"
         rows={4}
-        disabled
+        readOnly
       />
     </div>
   );
