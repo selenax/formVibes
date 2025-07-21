@@ -1,12 +1,52 @@
-# React + Vite
+# formVibes 🪩
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Create Forms. Catch Vibes.**
 
-Currently, two official plugins are available:
+formVibes is a fun, lightweight form builder that makes creating forms feel less like a chore and more like a vibe.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Whether you're a student, creator, startup, or someone just bored of Google Forms — FormVibes gives you the power to build stylish, embeddable forms with ease.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Drag-and-drop form builder
+- Embed anywhere or share a link
+- Custom themes (because aesthetics matter)
+- Built with modern React + Tailwind stack
+- Privacy-focused — your data stays yours
+
+---
+
+## 🛠 Tech Stack
+
+- React (with Hooks & Context)
+- TailwindCSS
+- ShadCN UI (Radix + headless magic)
+- Vite
+- Hosted on Vercel
+
+---
+
+## 🚀 Live Demo
+
+[Click here to catch the vibe](https://formvibes.vercel.app)
+
+---
+
+## Why formVibes?
+
+> “Google Forms walked so we could vibe.”
+
+In a world where privacy matters and personality shines, formVibes is for anyone who wants form creation to be fast, fun, and personal — without selling your data to the highest bidder.
+
+---
+
+## Getting Started
+
+```bash
+git clone https://github.com/selenax/formVibes.git
+cd formVibes
+npm install
+npm run dev
+```
