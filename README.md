@@ -10,6 +10,7 @@ Whether you're a student, creator, startup, or someone just bored of Google Form
 
 ## Features
 
+- AI-powered form generator — describe your form in natural languag
 - Drag-and-drop form builder
 - Embed anywhere or share a link
 - Custom themes (because aesthetics matter)
@@ -36,9 +37,9 @@ Whether you're a student, creator, startup, or someone just bored of Google Form
 
 ## Why formVibes?
 
->  "Google Forms walked… then hit a plateau. Now let’s vibe.”
+> "Google Forms walked… then hit a plateau. Now let’s vibe.”
 
-In a world where privacy matters and personality shines, formVibes is for anyone who wants form creation to be fast, fun, and personal — without selling your data to the highest bidder.
+In a world where privacy matters and personality shines, formVibes lets you create forms that feel personal — now with AI-powered generation and zero data selling.
 
 ---
 
