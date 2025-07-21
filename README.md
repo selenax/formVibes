@@ -36,7 +36,7 @@ Whether you're a student, creator, startup, or someone just bored of Google Form
 
 ## Why formVibes?
 
-> “Google Forms walked so we could vibe.”
+>  Google Forms walked… then hit a plateau. Now let’s vibe.”
 
 In a world where privacy matters and personality shines, formVibes is for anyone who wants form creation to be fast, fun, and personal — without selling your data to the highest bidder.
 
