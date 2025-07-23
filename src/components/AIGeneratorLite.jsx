@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AIGeneratorLite = ({ onGenerate }) => {
+function AIGeneratorLite({ onGenerate }) {
   const [prompt, setPrompt] = useState('');
 
   const inferFields = (input) => {
@@ -31,7 +31,8 @@ const AIGeneratorLite = ({ onGenerate }) => {
 
   const handleGenerate = () => {
     const fields = inferFields(prompt);
-    onGenerate(fields); // send fields to parent FormEditor
+    console.log('Generated fields:', fields);
+    onGenerate(fields); // sync to parent FormEditor
   };
 
   return (
@@ -47,6 +48,6 @@ const AIGeneratorLite = ({ onGenerate }) => {
       </button>
     </div>
   );
-};
+}
 
 export default AIGeneratorLite;
