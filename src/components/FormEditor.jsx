@@ -19,6 +19,8 @@ import ParagraphField from './FieldList/ParagraphField';
 import SelectField from './FieldList/SelectField';
 import RadioField from './FieldList/RadioField';
 import FieldCard from './FieldCard';
+import AIGeneratorLite from './AIGeneratorLite';
+import { nanoid } from 'nanoid'; // for unique IDs
 
 const SortableFieldWrapper = ({ field, onDelete, children }) => {
   const { setNodeRef, attributes, listeners, transform, transition } =
@@ -72,47 +74,51 @@ const FormEditor = ({ collection, onUpdate, onDelete, onReorder }) => {
   };
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-    >
-      <SortableContext
-        items={collection.map((f) => f.id)}
-        strategy={verticalListSortingStrategy}
+    <div className="space-y-6">
+      {/* Add AIGenerator */}
+      <AIGeneratorLite onGenerate={(fields) => setFormFields(fields)} />
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
       >
-        <div className="space-y-4 px-4">
-          {collection.map((field) => {
-            let FieldComponent;
-            switch (field.type) {
-              case 'text':
-                FieldComponent = TextField;
-                break;
-              case 'checkbox':
-                FieldComponent = CheckboxField;
-                break;
-              case 'paragraph':
-                FieldComponent = ParagraphField;
-                break;
-              case 'radio':
-                FieldComponent = RadioField;
-                break;
-              case 'select':
-                FieldComponent = SelectField;
-                break;
-              default:
-                return null;
-            }
+        <SortableContext
+          items={collection.map((f) => f.id)}
+          strategy={verticalListSortingStrategy}
+        >
+          <div className="space-y-4 px-4">
+            {collection.map((field) => {
+              let FieldComponent;
+              switch (field.type) {
+                case 'text':
+                  FieldComponent = TextField;
+                  break;
+                case 'checkbox':
+                  FieldComponent = CheckboxField;
+                  break;
+                case 'paragraph':
+                  FieldComponent = ParagraphField;
+                  break;
+                case 'radio':
+                  FieldComponent = RadioField;
+                  break;
+                case 'select':
+                  FieldComponent = SelectField;
+                  break;
+                default:
+                  return null;
+              }
 
-            return (
-              <FieldCard key={field.id} field={field} onDelete={onDelete}>
-                <FieldComponent field={field} onUpdate={onUpdate} />
-              </FieldCard>
-            );
-          })}
-        </div>
-      </SortableContext>
-    </DndContext>
+              return (
+                <FieldCard key={field.id} field={field} onDelete={onDelete}>
+                  <FieldComponent field={field} onUpdate={onUpdate} />
+                </FieldCard>
+              );
+            })}
+          </div>
+        </SortableContext>
+      </DndContext>
+    </div>
   );
 };
 
