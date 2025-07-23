@@ -7,17 +7,23 @@ const AIGeneratorLite = ({ onGenerate }) => {
     const lower = input.toLowerCase();
     const fields = [];
 
-    if (lower.includes("name")) fields.push({ label: "Name", type: "text" });
-    if (lower.includes("email")) fields.push({ label: "Email", type: "email" });
-    if (lower.includes("phone")) fields.push({ label: "Phone Number", type: "tel" });
-    if (lower.includes("date")) fields.push({ label: "Date", type: "date" });
-    if (lower.includes("rating") || lower.includes("rate")) fields.push({ label: "Rating", type: "number" });
-    if (lower.includes("message") || lower.includes("feedback") || lower.includes("comments")) {
-      fields.push({ label: "Feedback", type: "textarea" });
+    if (lower.includes('name')) fields.push({ label: 'Name', type: 'text' });
+    if (lower.includes('email')) fields.push({ label: 'Email', type: 'email' });
+    if (lower.includes('phone'))
+      fields.push({ label: 'Phone Number', type: 'tel' });
+    if (lower.includes('date')) fields.push({ label: 'Date', type: 'date' });
+    if (lower.includes('rating') || lower.includes('rate'))
+      fields.push({ label: 'Rating', type: 'number' });
+    if (
+      lower.includes('message') ||
+      lower.includes('feedback') ||
+      lower.includes('comments')
+    ) {
+      fields.push({ label: 'Feedback', type: 'textarea' });
     }
 
     if (fields.length === 0) {
-      fields.push({ label: "Your Input", type: "text" });
+      fields.push({ label: 'Your Input', type: 'text' });
     }
 
     return fields;
@@ -41,4 +47,6 @@ const AIGeneratorLite = ({ onGenerate }) => {
       </button>
     </div>
   );
-}
+};
+
+export default AIGeneratorLite;
