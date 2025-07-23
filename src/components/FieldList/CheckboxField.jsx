@@ -31,7 +31,12 @@ const CheckboxField = ({ field, onUpdate }) => {
       {/* Preview */}
       {(field.options || []).map((option, index) => (
         <div key={`preview-${index}`} className="flex items-center space-x-2">
-          <input type="checkbox" disabled />
+          <input
+            type="checkbox"
+            // checked
+            disable
+            className="w-5 h-5 accent-green-600 rounded-sm hover:ring-2 focus:outline-none focus:ring-blue-400"
+          />
           <label className="text-sm text-gray-500">
             {option || `Option ${index + 1}`}
           </label>

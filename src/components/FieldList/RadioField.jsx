@@ -30,8 +30,16 @@ const RadioField = ({ field, onUpdate }) => {
 
       {/* Preview */}
       {(field.options || []).map((option, index) => (
-        <div key={`preview-${index}`} className="flex items-center space-x-2">
-          <input type="radio" name={field.id} disabled />
+        <div
+          key={`preview-${index}`}
+          className="flex items-center space-x-2 mt-1"
+        >
+          <input
+            type="radio"
+            name={`preview-${field.id}`}
+            disabled
+            className="accent-blue-600 w-4 h-4"
+          />
           <label className="text-sm text-gray-500">
             {option || `Option ${index + 1}`}
           </label>
