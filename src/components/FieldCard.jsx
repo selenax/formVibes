@@ -12,20 +12,19 @@ const FieldCard = ({ field, onDelete, children }) => {
 
   return (
     <div className="relative pt-6 px-6">
-      {/* Delete button (outside top-right) */}
-      <button
-        onClick={() => onDelete(field.id)}
-        className="absolute -top-1 -right-1 text-red-500 text-lg font-bold transition-transform duration-200 ease-out hover:scale-150 hover:text-xl active:scale-125 z-10 px-2 py-1"
-        title="Delete field"
-      >
-        ✕
-      </button>
-
       <div
         ref={setNodeRef}
         style={style}
         className="relative border border-gray-300 rounded-lg bg-white shadow-sm pt-6 px-4 pb-4 pl-6"
       >
+        {/* Delete button (outside top-right) */}
+        <button
+          onClick={() => onDelete(field.id)}
+          className="absolute -top-1 -right-1 text-red-500 text-lg font-bold transition-transform duration-200 ease-out hover:scale-150 hover:text-xl active:scale-125 z-10 px-2 py-1"
+          title="Delete field"
+        >
+          ✕
+        </button>
         {/* Drag handle */}
         <div
           {...attributes}
