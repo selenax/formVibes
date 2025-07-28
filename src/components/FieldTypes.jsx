@@ -1,5 +1,11 @@
 // fieldTypes.js
-import { Text, TypeOutline, CheckSquare, Dot, ChevronDown } from 'lucide-react';
+import {
+  Text,
+  TypeOutline,
+  CheckSquare,
+  CircleCheck,
+  ChevronDown,
+} from 'lucide-react';
 
 export const FieldTypes = [
   {
@@ -20,7 +26,7 @@ export const FieldTypes = [
   {
     type: 'radio',
     label: 'Multiple choice',
-    icon: Dot,
+    icon: CircleCheck,
   },
   {
     type: 'select',
