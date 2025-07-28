@@ -28,7 +28,7 @@ const TextField = ({ field, onUpdate }) => {
       {/* Placeholder input */}
       <input
         type="text"
-        value={field.placeholder || ""}
+        value={field.placeholder || ''}
         onChange={(e) => onUpdate(field.id, { placeholder: e.target.value })}
         className="text-sm text-gray-600 border px-2 py-1 rounded w-full"
         placeholder="Placeholder text (optional)"
@@ -38,8 +38,10 @@ const TextField = ({ field, onUpdate }) => {
       <input
         type="number"
         min={1}
-        value={field.maxLength || ""}
-        onChange={(e) => onUpdate(field.id, { maxLength: Number(e.target.value) })}
+        value={field.maxLength || ''}
+        onChange={(e) =>
+          onUpdate(field.id, { maxLength: Number(e.target.value) })
+        }
         className="text-sm text-gray-600 border px-2 py-1 rounded w-full"
         placeholder="Max characters (optional)"
       />
@@ -47,7 +49,7 @@ const TextField = ({ field, onUpdate }) => {
       {/* Input preview */}
       <input
         type="text"
-        placeholder={field.placeholder || "Enter input"}
+        placeholder={field.placeholder || 'Enter input'}
         maxLength={field.maxLength}
         className="w-full border rounded px-2 py-1"
         disabled
