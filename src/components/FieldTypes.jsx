@@ -1,7 +1,7 @@
 // fieldTypes.js
 import { Text, TypeOutline, CheckSquare, Dot, ChevronDown } from 'lucide-react';
 
-export const FIELD_TYPES = [
+export const FieldTypes = [
   {
     type: 'text',
     label: 'Short answer',
