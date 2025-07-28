@@ -13,8 +13,10 @@ const Sidebar = ({ onAddField }) => {
             // >
             //   {type.charAt(0).toUpperCase() + type.slice(1)}
             className="w-[158px] flex items-center gap-2 
-             px-4 py-3 rounded-2xl bg-white border border-gray-300 
-             text-black hover:bg-gray-100 transition-transform hover:scale-110 group"
+           px-4 py-3 rounded-2xl 
+           bg-yellow-100 border border-yellow-200 
+           text-gray-800 font-semibold font-rounded 
+           hover:bg-yellow-200 transition-transform hover:scale-110 group"
           >
             <Icon
               size={18}
