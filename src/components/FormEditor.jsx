@@ -16,7 +16,7 @@ import { CSS } from '@dnd-kit/utilities';
 import TextField from './FieldList/TextField';
 import CheckboxField from './FieldList/CheckboxField';
 import ParagraphField from './FieldList/ParagraphField';
-import SelectField from './FieldList/SelectField';
+import DropdownField from './FieldList/DropdownField';
 import RadioField from './FieldList/RadioField';
 import FieldCard from './FieldCard';
 
@@ -67,7 +67,7 @@ const FormEditor = ({ collection, onUpdate, onDelete, onReorder }) => {
                 FieldComponent = RadioField;
                 break;
               case 'select':
-                FieldComponent = SelectField;
+                FieldComponent = DropdownField;
                 break;
               default:
                 return null;
