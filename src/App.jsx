@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import FormEditor from './components/FormEditor';
+import AIGeneratorLite from './components/AIGeneratorLite';
 
 const App = () => {
   const [collection, setCollection] = useState([]);
@@ -54,8 +55,18 @@ const App = () => {
             <Sidebar onAddField={handleClickField} />
           </div>
 
-          {/* Form Editor Column */}
           <div className="flex-grow">
+            <AIGeneratorLite
+              onGenerate={(fields) =>
+                setCollection((prev) => [
+                  ...prev,
+                  ...fields.map((field) => ({
+                    id: crypto.randomUUID(),
+                    ...field,
+                  })),
+                ])
+              }
+            />
             <FormEditor
               collection={collection}
               onToggleRequired={toggleRequired}
