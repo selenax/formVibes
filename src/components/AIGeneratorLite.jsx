@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Wand2 } from 'lucide-react';
 
 function AIGeneratorLite({ onGenerate }) {
   const [prompt, setPrompt] = useState('');
@@ -36,15 +37,21 @@ function AIGeneratorLite({ onGenerate }) {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="flex items-start gap-4">
       <textarea
-        className="w-full border rounded p-2"
         placeholder="Describe your form (e.g. RSVP with name, email, attendance)"
+        className="w-full h-[60px] p-3 border border-gray-300 rounded-2xl resize-none"
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}
       />
-      <button onClick={handleGenerate} className="btn btn-primary">
-        Generate Form
+      <button
+        onClick={handleGenerate}
+        className="h-[56px] flex items-center gap-2 px-4 rounded-2xl bg-white border border-yellow-400 hover:bg-yellow-100 transition-transform hover:scale-110 group"
+      >
+        <Wand2 className="w-6 h-6 text-yellow-500 group-hover:text-black" />
+        <span className="text-sm text-gray-800 font-semibold font-rounded">
+          Generate Form
+        </span>
       </button>
     </div>
   );
