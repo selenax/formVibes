@@ -9,10 +9,7 @@ const Sidebar = ({ onAddField }) => {
           <button
             key={type}
             onClick={() => onAddField(type)}
-            //   className="group flex items-center gap-3 px-4 py-2 rounded-2xl hover:bg-muted cursor-pointer transition-transform hover:scale-105"
-            // >
-            //   {type.charAt(0).toUpperCase() + type.slice(1)}
-            className="w-[158px] flex items-center gap-2 
+            className="w-[163px] flex items-center gap-2 
            px-4 py-3 rounded-2xl 
            bg-yellow-100 border border-yellow-200 
            text-gray-800 font-semibold font-rounded 
