@@ -27,7 +27,7 @@ const SortableItem = ({ id, value, onChange, onRemove }) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="flex items-center space-x-2 mb-1"
+      className="flex border-white items-center space-x-2 mb-1"
     >
       {/* Drag handle */}
       <div

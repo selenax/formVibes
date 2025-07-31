@@ -1,6 +1,6 @@
 const TextField = ({ field, onUpdate }) => {
   return (
-    <div className="p-4 border rounded space-y-2">
+    <div className="p-4 border border-white rounded space-y-2">
       {/* Label + required asterisk */}
       <div className="flex items-center justify-between">
         <input

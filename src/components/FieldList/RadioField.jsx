@@ -2,7 +2,7 @@ import OptionEditor from './OptionEditor';
 
 const RadioField = ({ field, onUpdate }) => {
   return (
-    <div className="p-4 border rounded space-y-2">
+    <div className="p-4 border border-white rounded space-y-2">
       {/* Field label */}
       <input
         type="text"
