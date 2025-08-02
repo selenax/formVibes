@@ -74,13 +74,45 @@ const App = () => {
                 ])
               }
             />
-            <FormEditor
-              collection={collection}
-              onToggleRequired={toggleRequired}
-              onUpdate={updateField}
-              onDelete={handleDeleteField}
-              onReorder={handleReorderFields}
-            />
+            <>
+              <FormEditor
+                collection={collection}
+                onToggleRequired={toggleRequired}
+                onUpdate={updateField}
+                onDelete={handleDeleteField}
+                onReorder={handleReorderFields}
+              />
+
+              <div className="mt-6 space-y-2">
+                <input
+                  type="text"
+                  placeholder="Form Title"
+                  value={formMeta.title}
+                  onChange={(e) =>
+                    setFormMeta((prev) => ({ ...prev, title: e.target.value }))
+                  }
+                  className="w-full p-2 border border-gray-300 rounded"
+                />
+                <textarea
+                  placeholder="Form Description"
+                  value={formMeta.description}
+                  onChange={(e) =>
+                    setFormMeta((prev) => ({
+                      ...prev,
+                      description: e.target.value,
+                    }))
+                  }
+                  className="w-full p-2 border border-gray-300 rounded resize-none"
+                  rows={2}
+                />
+                <button
+                  onClick={() => setIsPreviewing(true)}
+                  className="w-full py-2 px-4 bg-yellow-400 hover:bg-yellow-500 rounded text-black font-semibold"
+                >
+                  Preview Form
+                </button>
+              </div>
+            </>
           </div>
         </div>
       </div>
