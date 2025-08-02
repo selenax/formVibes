@@ -2,9 +2,16 @@ import { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import FormEditor from './components/FormEditor';
 import AIGeneratorLite from './components/AIGeneratorLite';
+import PreviewPage from './components/PreviewPage';
 
 const App = () => {
   const [collection, setCollection] = useState([]);
+  const [isPreviewing, setIsPreviewing] = useState(false);
+
+  const [formMeta, setFormMeta] = useState({
+    title: 'Untitled Form',
+    description: '',
+  });
 
   const handleClickField = (type) => {
     let newField = {
